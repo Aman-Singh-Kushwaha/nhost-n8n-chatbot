@@ -14,8 +14,10 @@
     "@apollo/client": "^3.13.9",
     "@nhost/react": "^3.11.1",
     "graphql": "^16.11.0",
+    "lucide-react": "^0.539.0",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "react-hot-toast": "^2.6.0"
   },
   "devDependencies": {
     "@types/react": "^19.1.10",
