@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import ChatList from './ChatList';
-import MessageView from './MessageView';
+import ChatList from '../components/ChatList';
+import MessageView from '../components/MessageView';
 
 const ChatLayout = () => {
   const [selectedChatId, setSelectedChatId] = useState(null);

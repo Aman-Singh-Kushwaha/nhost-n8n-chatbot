@@ -48,10 +48,10 @@ export const TRIGGER_BOT_ACTION = gql`
   }
 `;
 
-// export const UPDATE_CHAT_TITLE = gql`
-//     mutation UpdateChatTitle($chat_id: uuid!, $title: String!) {
-//         update_chats_by_pk(pk_columns: {id: $chat_id}, _set: {title: $title}) {
-//             id
-//         }
-//     }
-// `;
+export const UPDATE_CHAT_TITLE = gql`
+    mutation UpdateChatTitle($chat_id: uuid!, $title: String!) {
+        update_chats_by_pk(pk_columns: {id: $chat_id}, _set: {title: $title}) {
+            id
+        }
+    }
+`;

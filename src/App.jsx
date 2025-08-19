@@ -1,6 +1,6 @@
 import { useAuthenticationStatus, useSignOut } from '@nhost/react';
 import Auth from './page/Auth';
-import ChatLayout from './components/ChatLayout';
+import ChatLayout from './page/ChatLayout';
 
 const App = () => {
   const { isLoading, isAuthenticated } = useAuthenticationStatus();
