@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSignUpEmailPassword } from '@nhost/react';
+import { useSignUpEmailPassword,useSendVerificationEmail } from '@nhost/react';
 import { toast } from 'react-hot-toast';
 import { MailCheck } from 'lucide-react';
 
@@ -9,6 +9,7 @@ const SignUp = ({ onSignInClick }) => {
   const [showVerificationMessage, setShowVerificationMessage] = useState(false);
 
   const { signUpEmailPassword, isLoading } = useSignUpEmailPassword();
+  const { sendEmail, isSent} = useSendVerificationEmail();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -25,6 +26,18 @@ const SignUp = ({ onSignInClick }) => {
     }
   };
 
+  const handleSendVerification = async (e)=>{
+    e.preventDefault();
+    const { error, isSent } = await sendEmail(email);
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
+    if (isSent) {
+      toast.success('Verification email sent. Please check your inbox & SPAM.');
+    }
+  }
+
   if (showVerificationMessage) {
     return (
       <div className="text-center">
@@ -34,6 +47,9 @@ const SignUp = ({ onSignInClick }) => {
           We've sent a verification link to <strong>{email}</strong>.
           Please check your inbox and spam folder.
         </p>
+        <button onClick={handleSendVerification} className="mt-4 text-sm text-blue-600">
+          Resend Verification Email
+        </button>
       </div>
     );
   }
